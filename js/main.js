@@ -45,8 +45,8 @@ const motos = [moto1, moto2, moto3, moto4, moto5, moto6, moto7];
 let carrito = [];       //inicializo el array carrito
 let costoTotal = 0;     //inicializo la variable costo total para mostrarla al final
 
-const validarMenu = function(txt,i){        //siendo opcion la opción elegida e i el número de opciones en el menú
-    let opcion = '';
+const validarMenu = function(txt,i){        //siendo opcion la opción elegida, txt el texto de éste menú e i el número de opciones en el menú. Me dí cuenta tarde que podía reemeplazarlo por un "default" en el switch
+    let opcion = '';                        
     do{
         opcion = parseInt(prompt(txt))
         if(!(opcion >= 0 && opcion < i)){ 
@@ -55,6 +55,8 @@ const validarMenu = function(txt,i){        //siendo opcion la opción elegida e
         console.log(opcion);                //control de lo que ingresó el usuario
     }while(!(opcion >= 0 && opcion < i))
 }
+
+
 
 let opcionMenu;
 console.table(motos)        //muestra las opciones y precios en consola
