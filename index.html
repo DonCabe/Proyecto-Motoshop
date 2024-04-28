@@ -11,37 +11,33 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>MotoShop</h1>
-            <nav>
-                <ul> <!--Se usa el hipervinculo por la posibilidad de usar otros formularios en el futuro-->
-                    <li><a id="inicio" href="#">Inicio</a></li>
-                    <li><a id="motocicletas" href="#">Motocicletas</a></li>
-                    <li><a id="accesorios" href="#">Accesorios</a></li>
-                    <li><a id="contacto" href="#">Contacto</a></li>
-                </ul>
-                <br>
-                <!--Carrito separado burdamente de las otras opciones-->
-                <li><a id="carrito" href="./carrito.html">Carrito</a></li>
-            </nav>
-        </div>
-    </header>
+    <div id="option-container">
+        <header>
+            <div class="container">
+                <h1>MotoShop</h1>
+                <nav>
+                    <ul>
+                        <li><a id="inicio" href="#">Inicio</a></li>
+                        <li><a id="motocicletas" href="#">Motocicletas</a></li>
+                        <li><a id="accesorios" href="#">Accesorios</a></li>
+                        <li><a id="contacto" href="#">Contacto</a></li>
+                        <li><a id="carrito" href="./carrito.html">Carrito</a></li>
+                    </ul>
 
-    <!---->
-    <section class="menu-principal">
-        <div class="container">
-            <h2>Bienvenido a MotoShop</h2>
-            <p>Elija qué quiere buscar con los botones del menú.</p>
-        </div>
-    </section>
+                </nav>
+            </div>
+        </header>
 
-    <section id="producto-lista" class="producto-lista"></section>
 
-    <footer>
-        <div class="container">
-            <p>MotoShop 2024 &copy;</p>
-        </div>
-    </footer>
+        <section id="menu-principal"></section>
+            
+        <section id="product-container" class="product-container"></section>
+
+        <footer>
+            <div class="container">
+                <p>MotoShop 2024 &copy;</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

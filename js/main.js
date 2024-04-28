@@ -1,32 +1,16 @@
-//const opcMenuPrinc = 3;    //cantidad de opciones en el menú principal
-//const txtMenuPrincipal = 'Ingrese el número de la opción que desea. \n 1 - Motos \n 2 - Accesorios \n 0 - Finalizar'; //Texto del menú principal
 const dolarHoy = 1010
+// fetch("/https://dolarapi.com/v1dolares/blue")
+//   .then(response => response.json())
+//   .then(data => console.log(data));
 
-class Moto {
-    static id = 0
-    constructor (marca, modelo, precio, img) {
-        this.id = ++Moto.id,
-        this.producto = marca + " - " + modelo,
-        this.precio = precio * dolarHoy,
-        this.img = img
-    }
-};
-
-// class Accesorio {
-//     static id = 0
-//     constructor (producto, precio, img)
-//     {
-//         this.id = ++Accesorio.id,
-//         this.producto = producto
-//         this.precio = precio * dolarHoy,
-//         this.img = img
-//     }
-// };
+enPesos = (precio) => {
+    return precio * dolarHoy
+}
 
 const datosContacto = {
     nombre: "Martín Perez",
     telefono: "11-2345-6789",
-    correo: "mperez.motoshop@gmail.com"
+    email: "mperez.motoshop@gmail.com"
 };
 
 patentamiento = (precio) => {   //función para calcular el costo del patentamiento de la moto
@@ -34,92 +18,144 @@ patentamiento = (precio) => {   //función para calcular el costo del patentamie
     return precio
 };
 
-const moto1 = new Moto ('Honda','Wave',1700,"");
-const moto2 = new Moto ('Honda','XR250',5500,"");
-const moto3 = new Moto ('Yamaha','FZ X',2400,"");
-const moto4 = new Moto ('Yamaha','YBR125',2600,"");
-const moto5 = new Moto ('Suzuki','GN125',2600,"");
-const moto6 = new Moto ('Suzuki','GSX125',2600,"");
+const container = document.getElementById("product-container");
+const mainMenu = document.getElementById("menu-principal");
 
-const motos = [moto1, moto2, moto3, moto4, moto5, moto6];
+//muestra el menú de inicio
+let inicioMenu = document.getElementById("inicio")
+inicioMenu.onclick = () => {
+    renderInicio();
+}
 
-// const accesorio1 = new Accesorio ('Casco Hawk',50,"");
-// const accesorio2 = new Accesorio ('Casco LS2',150,"");
-// const accesorio3 = new Accesorio ('Baulera',70,"");
-// const accesorio4 = new Accesorio ('Piloto Lluvia',30,"");
-// const accesorio5 = new Accesorio ('Campera Ref.',300,"");
-// const accesorio6 = new Accesorio ('Guantes Ref.',30,"");
-// const accesorio7 = new Accesorio ('Cadena',15,"");
-// const accesorio8 = new Accesorio ('Traba Disco',30,"");
-
-// const accesorios = [accesorio1, accesorio2, accesorio3, accesorio4, accesorio5, accesorio6, accesorio7, accesorio8];
-
-
-//muestra los accesorios
+//muestra las motocicletas
 let motocicletasMenu = document.getElementById("motocicletas")
 motocicletasMenu.onclick = () => {
-    renderProductos(motos);
+    renderProductos(true);
 }
 
 //muestra los accesorios
 let accesoriosMenu = document.getElementById("accesorios")
 accesoriosMenu.onclick = () => {
-    // renderProductos(accesorios);
-    alert("Próximamente.")
+    // imagen.src
+    renderProductos(false);
+}
+
+//Inicializo el carrito y el almacenamiento del mismo
+let cartProducts = [];
+let cartProductsLS = localStorage.getItem("cartProducts");  //inicializo el array del carrito con el contenido del LocalStorage
+if(cartProductsLS){
+    cartProducts = JSON.parse(cartProductsLS);
+}
+
+//Inicializo el array de motos que le interesaron al usuario.
+let consultedBikes = [];
+
+renderInicio = () => {      //función de renderizado del menú de inicio
+    container.innerHTML = "";
+    mainMenu.innerHTML = "";
+    mainMenu.style.backgroundImage = "url('./images/fondos/bg-main.jpg')";
+    const titulo = document.createElement ("div");
+    titulo.className = "menu";
+    titulo.innerHTML = `<h2>Bienvenido a MotoShop</h2>
+                        <p>Elija qué quiere buscar con los botones del menú.</p>`;
+                        mainMenu.appendChild(titulo)
+    const card = document.createElement ("div");
+    card.className = "ventanas";
+    card.innerHTML = `<span><h3 id="acces">Accesorios</h3></span>
+                      <span><h3 id="motos">Motocicletas</h3></span>`
+    container.appendChild(card)
 }
 
 //tarjeta de contacto
 let contactoMenu = document.getElementById("contacto")
 contactoMenu.onclick = () => {
-    let limpiar = document.getElementById("producto-lista");
-    limpiar.innerHTML = "";
+    mainMenu.innerHTML = "";
+    mainMenu.style.backgroundImage = "url('./images/fondos/bg-consulta.jpg')";
+    container.innerHTML = "";
     const card = document.createElement ("div");
-    card.className = "card";
+    card.className = "contacto";
     card.innerHTML = `<h2>${datosContacto.nombre}</h2>
                       <h3>Tel.: ${datosContacto.telefono}</h3>
-                      <h3>Mail: ${datosContacto.correo}</h3>`        
-    productsContainer.appendChild(card)
+                      <h3>Mail: ${datosContacto.email}</h3>`;
+    container.appendChild(card)
 }
 
-
-let cartProducts = [];
-let cartProductsLS = localStorage.getItem("cartProducts");  //inicializo el array del carrito con el contenido del LocalStorage
-if(cartProductsLS){
-    cartProducts = JSON.parse(cartProductsLS);
-} else {
-    cartProducts = [];
+function renderProductos(bandera) {     //función para renderizar las motos o accesorios
+    mainMenu.innerHTML = "";
+    container.innerHTML = "";
+    if (bandera) {                      //recibe un booleano y en base a eso renderiza motos o accesorios
+        mainMenu.style.backgroundImage = "url('./images/fondos/bg-motos.jpg')";
+        fetch('./db/motos.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(producto => {
+                const card = document.createElement ("div");
+                card.className = "card";
+                card.innerHTML = `<h2>${producto.marca}</h2>
+                                  <img src="${producto.img}" alt="img ${producto.modelo}">
+                                  <h3>${producto.modelo}</h3>
+                                  <p>Precio: $${enPesos(producto.precio)}</p>
+                                  <button class="consulta" id="${producto.id}">Consultar</button>`
+                container.appendChild(card)
+            })
+            consultButton(data)
+        })
+        .catch(error => {
+            console.log('Error fetching products:', error);
+        });
+    } else {
+        mainMenu.style.backgroundImage = "url('./images/fondos/bg-accesorios.jpg')";
+        fetch('./db/accesorios.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach (producto => {
+                const card = document.createElement ("div");
+                card.className = "card";
+                card.innerHTML = `<img src="${producto.img}" alt="img ${producto.producto}">
+                                    <h2>${producto.producto}</h2>
+                                    <p>Precio: $${enPesos(producto.precio)}</p>
+                                    <button class="productoAgregar" id="${producto.id}">Agregar</button>`
+                    container.appendChild(card)
+            });
+            addToCartButton(data) 
+        })
+        .catch(error => {
+            console.log('Error fetching products:', error);
+        });
+    }
 }
 
-let productsContainer = document.getElementById("producto-lista");   //
-
-function renderProductos(productsArray) {    //Función para renderizar las motos o accesorios
-    let limpiar = document.getElementById("producto-lista");
-    limpiar.innerHTML = "";
-    productsArray.forEach (producto => {
-        const card = document.createElement ("div");
-        card.className = "card";
-        card.innerHTML = `<img src="${producto.img}" alt="img ${producto.producto}">
-                          <h2>${producto.producto}</h2>
-                          <p>Precio: $${producto.precio}</p>
-                          <button class="productoAgregar" id="${producto.id}">Agregar</button>`
-        productsContainer.appendChild(card)
-    });
-    addToCartButton(productsArray)
-};
-
-//Función para agregar items de un array(lista) al carrito
-function addToCartButton (producto) {
+function addToCartButton (producto) {           //Función para agregar items de un array(lista) al carrito
     let addButton = document.querySelectorAll(".productoAgregar")
     addButton.forEach (button => {
         button.onclick = (e) => {
             const productId = e.currentTarget.id
-            const selectedProduct = producto.find (producto => producto.id == productId)
-            cartProducts.push(selectedProduct)
-            console.log(cartProducts)
-
+            if (cartProducts.some((carrito) => carrito.id == productId)) {
+                cartProducts.find((carrito) => carrito.id == productId).cantidad++;
+            } else {
+                const selectedProduct = producto.find((p) => p.id == productId);
+                selectedProduct.cantidad = 1;
+                selectedProduct.precio = enPesos(selectedProduct.precio)
+                cartProducts.push(selectedProduct);
+            }
+            //toastify agregado al carrito!
             localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
         }
     })
 };
 
-console.log('Gracias por utilizar Motoshop.');      //saludo cordial
+function consultButton (producto) {
+    let addButton = document.querySelectorAll(".consulta")
+    addButton.forEach (button => {
+        button.onclick = (e) => {
+            const bikeId = e.currentTarget.id;
+            const selectedBike = producto.find(producto => producto.id == bikeId)
+            //mejorar con SweetAlert HTML TextBox
+            consultedBikes.push(selectedBike);
+            console.log(prompt("Ingrese datos bla bla bla"))
+            console.log(consultedBikes)
+        }
+    })
+}
+
+renderInicio();

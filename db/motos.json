@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "marca":"Honda",
+        "modelo": "Wave",
+        "precio": 1700,
+        "img": "./images/motos/Honda-Wave-Blanco.jpg"
+    },
+    {
+        "id": 2,
+        "marca":"Honda",
+        "modelo": "XR250",
+        "precio": 5500,
+        "img": "./images/motos/Honda-XR250-Rojo.jpg"
+    },
+    {
+        "id": 3,
+        "marca":"Yamaha",
+        "modelo": "FZ X",
+        "precio": 2400,
+        "img": "./images/motos/Yamaha-FZX-Azul.jpg"
+    },
+    {
+        "id": 4,
+        "marca":"Yamaha",
+        "modelo": "YBR125",
+        "precio": 2600,
+        "img": "./images/motos/Yamaha-YBR125-Negro.jpg"
+    },
+    {
+        "id": 5,
+        "marca":"Suzuki",
+        "modelo": "GN125",
+        "precio": 2600,
+        "img": "./images/motos/Suzuki-GN125-Rojo.jpg"
+    },
+    {
+        "id": 6,
+        "marca":"Suzuki",
+        "modelo": "GSX125",
+        "precio": 2600,
+        "img": "./images/motos/Suzuki-GSX-125R-Azul.jpg"
+    },
+    {
+        "id": 7,
+        "marca":"Beta",
+        "modelo": "ZT155G",
+        "precio": 3800,
+        "img": "./images/motos/Beta-ZT155G-Fluor.jpg"
+    },
+    {
+        "id": 8,
+        "marca":"Beta",
+        "modelo": "ZT310M",
+        "precio": 7000,
+        "img": "./images/motos/Beta-ZT310M-Azul.jpg"
+    },
+    {
+        "id": 9,
+        "marca":"Beta",
+        "modelo": "ZT310T",
+        "precio": 6700,
+        "img": "./images/motos/Beta-ZT310T-Azul.jpg"
+    },
+    {
+        "id": 10,
+        "marca":"Beta",
+        "modelo": "Zontes 350GK",
+        "precio": 7300,
+        "img": "./images/motos/Beta-ZT350GK-Negro.jpg"
+    }
+]

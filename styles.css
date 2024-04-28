@@ -15,6 +15,21 @@ body h1 {
     color: #fff;
 }
 
+#option-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
 .container {
     width: 70%;
     margin: 0 auto;
@@ -46,47 +61,65 @@ nav li a {
     text-decoration: none;
 }
 
-.menu-principal {
-    background-image: url('menuPrincipal.jpg'); 
+/* Estilos Menú Principal */
+#menu-principal {
+    background-image: url('./images/fondos/main-background.jpg');
     background-size: cover;
-    color: #333;
-    padding: 100px 0;
+    color: #fff;
+    padding: 150px 0;
     text-align: center;
 }
 
-.producto-lista {
-    padding: 50px 0;
+.menu-principal img {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center center;
 }
 
-.producto-lista h1 {
+/* Contenedor y tarjetas de los productos */
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-bottom: 5rem;
+}
+
+.product-container h1 {
     color: #333;
     text-align: center;
 }
 
-.producto {
+.card {
     background-color: #fff;
     padding: 20px;
     margin: 20px;
+    max-width: 400px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.producto img {
-    width: 100%;
+.card img {
+    width: 90%;
+    height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-.producto h2 {
+.card h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-.producto p {
+.card p {
     margin-bottom: 10px;
 }
 
-.producto button {
+.card button {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
@@ -95,18 +128,15 @@ nav li a {
     cursor: pointer;
 }
 
-.producto button:hover {
+.card button:hover {
     background-color: #555;
 }
+
+/*#cart-selection{
+
+}*/
 
 .total h2 {
     display: inline;
     margin-right: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
 }

@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "producto":"Casco Hawk",
+        "precio": 50,
+        "cantidad": 0,
+        "img": "./images/accesorios/casco-hawk.jpg"
+    },
+    {
+        "id": 2,
+        "producto":"Casco LS2",
+        "precio": 150,
+        "cantidad": 0,
+        "img": "./images/accesorios/casco-ls2.jpg"
+    },
+    {
+        "id": 3,
+        "producto":"Piloto Lluvia",
+        "precio": 30,
+        "cantidad": 0,
+        "img": "./images/accesorios/piloto-lluvia.jpg"
+    },
+    {
+        "id": 4,
+        "producto":"Campera Ref.",
+        "precio": 300,
+        "cantidad": 0,
+        "img": "./images/accesorios/campera-reforzada.jpg"
+    },
+    {
+        "id": 5,
+        "producto":"Guantes Ref.",
+        "precio": 30,
+        "cantidad": 0,
+        "img": "./images/accesorios/guantes-cuero-ref.jpg"
+    },
+    {
+        "id": 6,
+        "producto":"Baulera",
+        "precio": 70,
+        "cantidad": 0,
+        "img": "./images/accesorios/baulera.jpg"
+    },
+    {
+        "id": 7,
+        "producto":"Cadena",
+        "precio": 15,
+        "cantidad": 0,
+        "img": "./images/accesorios/cadena-onguard.jpg"
+    },
+    {
+        "id": 8,
+        "producto":"Traba Disco",
+        "precio": 30,
+        "cantidad": 0,
+        "img": "./images/accesorios/traba-disco.jpg"
+    }
+]
