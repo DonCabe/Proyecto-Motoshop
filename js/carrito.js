@@ -84,7 +84,7 @@ renderCarrito = () => {    //Función para renderizar los items del carrito
                 } else if (surname == "" || !formatoTexto.test(surname)) {
                     Swal.showValidationMessage("Ingrese un apellido válido");
                 } else {
-                    const formatoMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;     // Formato para validad el mail
+                    const formatoMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;     // expresión regular para validad el mail
                     if (!formatoMail.test(email)) {
                         Swal.showValidationMessage("Ingrese un email válido");
                     }
