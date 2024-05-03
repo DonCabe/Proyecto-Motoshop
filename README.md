@@ -1,0 +1,3 @@
+La idea del proyecto es simular un ecommerce de accesorios para motociclistas. Muestra motocicletas disponibles y permite "enviar" una consulta para coordinar una compra en el local (ya que al ser bienes registrables, no se pueden vender como un producto común)
+Manejo del carrito de compras con cierre del circulo de comercio, no envía un mail pero guarda los datos en el storage simulando el manejo de esos datos.
+Hay cosas básicas que me hubiera encantado agregar, como un botón de filtrado/busqueda por texto, que el carrito sea un modal o una lista con opciones de marca/modelo. Pero el tiempo es tirano, así que quedará para más adelante.
