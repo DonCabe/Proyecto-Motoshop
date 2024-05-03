@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- JavaScript -->
     <script defer src="./js/main.js"></script>
+    <!-- CSS | Toastify -->
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <title>Proyecto Motoshop</title>
 </head>
 
@@ -17,13 +20,12 @@
                 <h1>MotoShop</h1>
                 <nav>
                     <ul>
-                        <li><a id="inicio" href="#">Inicio</a></li>
-                        <li><a id="motocicletas" href="#">Motocicletas</a></li>
-                        <li><a id="accesorios" href="#">Accesorios</a></li>
-                        <li><a id="contacto" href="#">Contacto</a></li>
-                        <li><a id="carrito" href="./carrito.html">Carrito</a></li>
+                        <li id="inicio">Inicio</li>
+                        <li id="motocicletas">Motocicletas</li>
+                        <li id="accesorios">Accesorios</li>
+                        <li id="contacto">Contacto</li>
+                        <li id="carrito"><a href="./carrito.html">Carrito <span id="carrito-counter">0</span></a></li>
                     </ul>
-
                 </nav>
             </div>
         </header>
@@ -39,5 +41,9 @@
             </div>
         </footer>
     </div>
+    <!-- Toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
